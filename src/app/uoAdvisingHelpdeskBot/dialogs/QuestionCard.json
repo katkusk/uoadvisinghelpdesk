@@ -1,0 +1,85 @@
+{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.2",
+    "body": [
+        {
+            "type": "TextBlock",
+            "size": "medium",
+            "weight": "bolder",
+            "text": "Ask a Registration Question",
+            "horizontalAlignment": "center"
+        },
+        {
+            "type": "TextBlock",
+            "text": "_Questions received after hours will be answered between 10 am and 4 pm, Mon-Fri._",
+            "wrap": true,
+            "spacing": "Small"
+        },
+        {
+            "type": "TextBlock",
+            "text": "What is your preferred first name?",
+            "weight": "Bolder"
+        },
+        {
+            "type": "Input.Text",
+            "style": "Tel",
+            "id": "StudentFirst"
+        },
+        {
+            "type": "TextBlock",
+            "text": "What would you like to ask?",
+            "weight": "Bolder"
+        },
+        {
+            "type": "Input.Text",
+            "style": "text",
+            "id": "StudentQuestion",
+            "isMultiline": true,
+            "$data": "(not set)"
+        },
+        {
+            "type": "TextBlock",
+            "text": "What is your phone number?",
+            "weight": "Bolder"
+        },
+        {
+            "type": "TextBlock",
+            "text": "So our advisors can reach out if needed.",
+            "wrap": true,
+            "spacing": "Small",
+            "isSubtle": true
+        },
+        {
+            "type": "Input.Text",
+            "style": "Tel",
+            "id": "StudentPhone"
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "Ask Away!",
+            "data": {
+              "msteams": {
+                  "type": "messageBack",
+                  "displayText": "[Question Text]",
+                  "text": "messageBackRegQuestion",
+                  "value": "{\"studentFirst\": \"StudentFirst\"studentQuestion\": \"StudentQuestion\", \"studentPhone\": \"StudentPhone\"}"
+              }
+            }
+          },
+        {
+            "type": "Action.Submit",
+            "title": "Cancel",
+            "data": {
+              "msteams": {
+                  "type": "messageBack",
+                  "displayText": "Cancel",
+                  "text": "Never Mind",
+                  "value": ""
+              }
+            }
+          }
+    ]
+}
