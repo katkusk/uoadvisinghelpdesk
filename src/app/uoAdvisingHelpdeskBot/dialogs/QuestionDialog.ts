@@ -8,6 +8,8 @@ export default class QuestionDialog extends Dialog {
     constructor(dialogId: string) {
         super(dialogId);
 
+        
+
     }
 
     public async beginDialog(context: DialogContext, options?: any): Promise<DialogTurnResult> {
