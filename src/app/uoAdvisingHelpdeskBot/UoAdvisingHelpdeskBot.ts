@@ -9,6 +9,9 @@ import QuestionDialog from "./dialogs/QuestionDialog";
 // Initialize debug logging module
 const log = debug("msteams");
 
+const appInsights = require('applicationinsights');
+appInsights.setup('78765a88-36a2-466d-ab09-671daeb2393c').start();
+
 /**
  * Implementation for UO Advising Helpdesk Bot
  */
