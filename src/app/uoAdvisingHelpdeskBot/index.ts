@@ -139,6 +139,6 @@ export class UserProfileDialog extends ComponentDialog {
 
     private async agePromptValidator(promptContext: PromptValidatorContext<number>) {
         // This condition is our validation rule. You can also change the value at this point.
-        return promptContext.recognized.succeeded && promptContext.recognized.value > 0 && promptContext.recognized.value < 150;
+        return promptContext.recognized.succeeded && promptContext.recognized.value! > 0 && promptContext.recognized.value! < 150;
     }
 }
