@@ -9,7 +9,6 @@ import {
     DialogSet,
     DialogTurnStatus,
     NumberPrompt,
-    PromptValidatorContext,
     TextPrompt,
     WaterfallDialog,
     WaterfallStepContext
@@ -34,7 +33,7 @@ export class UserProfileDialog extends ComponentDialog {
         this.addDialog(new TextPrompt(NAME_PROMPT));
         this.addDialog(new ChoicePrompt(CHOICE_PROMPT));
         this.addDialog(new ConfirmPrompt(CONFIRM_PROMPT));
-        this.addDialog(new NumberPrompt(NUMBER_PROMPT, this.agePromptValidator));
+        this.addDialog(new NumberPrompt(NUMBER_PROMPT));
 
         this.addDialog(new WaterfallDialog(WATERFALL_DIALOG, [
             this.transportStep.bind(this),
@@ -137,8 +136,4 @@ export class UserProfileDialog extends ComponentDialog {
         return await stepContext.endDialog();
     }
 
-    private async agePromptValidator(promptContext: PromptValidatorContext<number>) {
-        // This condition is our validation rule. You can also change the value at this point.
-        return promptContext.recognized.succeeded && promptContext.recognized.value! > 0 && promptContext.recognized.value! < 150;
-    }
 }
